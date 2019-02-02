@@ -1,0 +1,27 @@
+{
+  "ingredientes": {
+    "alface": 0.4,
+    "bacon": 2.0,
+    "hamb-de-carne": 3.0,
+    "ovo": 0.8,
+    "queijo": 1.5
+  },
+  "lanches": [
+    {
+      "nome": "X-Bacon",
+      "ingredientes": ["bacon", "hamb-de-carne", "queijo"]
+    },
+    {
+      "nome": "X-Burger",
+      "ingredientes": ["hamb-de-carne", "queijo"]
+    },
+    {
+      "nome": "X-Egg",
+      "ingredientes": ["ovo", "hamb-de-carne", "queijo"]
+    },
+    {
+      "nome": "X-Egg Bacon",
+      "ingredientes": ["ovo", "bacon", "hamb-de-carne", "queijo"]
+    }
+  ]
+}
