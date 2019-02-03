@@ -6,6 +6,7 @@ import formatCurrency from '../../functions/FormatCurrency';
 
 export default function InfoBoxText(props) {
   const { nome, ingredientes, ingredientesInfo, onClick } = props;
+  console.log(returnPrice(ingredientes, ingredientesInfo));
   return (
     <div
       className="info_box_wrapper"
@@ -25,7 +26,7 @@ export default function InfoBoxText(props) {
         <Col md={12}>
           Preço inicial:
           <span className="desc">
-            {formatCurrency(returnPrice(ingredientes, ingredientesInfo))}
+            {formatCurrency(returnPrice(ingredientes, ingredientesInfo).price)}
           </span>
         </Col>
       </span>

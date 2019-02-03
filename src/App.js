@@ -79,7 +79,9 @@ class App extends Component {
                     changeAdicionais={this.changeAdicionais}
                   />
                 </Tab.Pane>
-                <Tab.Pane eventKey={3}>3</Tab.Pane>
+                <Tab.Pane eventKey={3}>
+                  <h1>Pedido efetuado com sucesso !</h1>
+                </Tab.Pane>
               </Tab.Content>
             </Row>
           </Tab.Container>
@@ -95,13 +97,17 @@ class App extends Component {
                 </Button>
               </Col>
               <Col md={{ offset: 8, span: 2 }}>
-                <Button
-                  block
-                  onClick={() => this.handleSelectKey(selectedKey + 1)}
-                  variant="info"
-                >
-                  Confirmar
-                </Button>
+                {selectedKey < 3 ? (
+                  <Button
+                    block
+                    onClick={() => this.handleSelectKey(selectedKey + 1)}
+                    variant="info"
+                  >
+                    Confirmar
+                  </Button>
+                ) : (
+                  ''
+                )}
               </Col>
             </Row>
           ) : (
