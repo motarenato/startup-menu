@@ -22,6 +22,10 @@
     {
       "nome": "X-Egg Bacon",
       "ingredientes": ["ovo", "bacon", "hamb-de-carne", "queijo"]
+    },
+    {
+      "nome": "Criar meu próprio Lanche",
+      "ingredientes": ["A escolher"]
     }
   ]
 }
