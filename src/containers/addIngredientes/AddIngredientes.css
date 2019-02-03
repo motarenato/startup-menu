@@ -1,0 +1,13 @@
+.add_ingredientes {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+}
+
+.footer_total {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+  font-size: 20px;
+}

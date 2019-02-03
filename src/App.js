@@ -10,6 +10,13 @@ class App extends Component {
     ingredientes: {},
     lanches: [],
     lancheSelecionado: '',
+    ingredientesAdicionais: {
+      alface: 0,
+      bacon: 0,
+      'hamb-de-carne': 0,
+      ovo: 0,
+      queijo: 0,
+    },
     loading: true,
     selectedKey: 1,
   };
@@ -28,7 +35,14 @@ class App extends Component {
         console.error('Failed retrieving information', err);
       });
   }
-
+  changeAdicionais = (key, value) =>
+    this.setState({
+      ingredientesAdicionais: {
+        ...this.state.ingredientesAdicionais,
+        [key]: value,
+      },
+    });
+  setLanche = value => this.setState({ lancheSelecionado: value });
   handleSelectKey = value => this.setState({ selectedKey: value });
 
   render() {
@@ -37,13 +51,13 @@ class App extends Component {
       ingredientes,
       selectedKey,
       lancheSelecionado,
+      ingredientesAdicionais,
     } = this.state;
+    console.log(this.state);
     return (
       <div className="App">
-        <div class="header">
-          <div className="header-desc">
-            <strong>Dextra lanches</strong>
-          </div>
+        <div className="header">
+          <div className="header-desc" />
         </div>
         <Col md={{ offset: 3, span: 6 }}>
           <Tab.Container id="tabs-proresso" activeKey={selectedKey}>
@@ -51,14 +65,18 @@ class App extends Component {
               <Tab.Content style={{ width: '100%' }}>
                 <Tab.Pane eventKey={1}>
                   <SelecionarTipos
+                    ingredientes={ingredientes}
                     lanches={lanches}
                     handleSelectKey={this.handleSelectKey}
+                    setLanche={this.setLanche}
                   />
                 </Tab.Pane>
                 <Tab.Pane eventKey={2}>
                   <AddIngredientes
                     ingredientes={ingredientes}
+                    ingredientesAdicionais={ingredientesAdicionais}
                     lancheSelecionado={lancheSelecionado}
+                    changeAdicionais={this.changeAdicionais}
                   />
                 </Tab.Pane>
                 <Tab.Pane eventKey={3}>3</Tab.Pane>

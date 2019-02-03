@@ -1,32 +1,33 @@
 import './InfoBox.css';
 import React from 'react';
-import PropTypes from 'prop-types';
-
-InfoBoxText.propTypes = {
-  quantidade: PropTypes.string,
-  descQuantidade: PropTypes.string,
-  descricao: PropTypes.string,
-  pontuacao: PropTypes.number,
-  header: PropTypes.string,
-};
-
-InfoBoxText.defaultProps = {
-  quantidade: '',
-  descQuantidade: '',
-  descricao: '',
-  header: '',
-};
+import { Col } from 'react-bootstrap';
+import returnPrice from '../../functions/ReturnPrices';
+import formatCurrency from '../../functions/FormatCurrency';
 
 export default function InfoBoxText(props) {
-  const { nome, ingredientes } = props;
+  const { nome, ingredientes, ingredientesInfo, onClick } = props;
   return (
-    <div className="info_box_wrapper">
+    <div
+      className="info_box_wrapper"
+      onClick={() => onClick({ nome, ingredientes })}
+    >
       <span className="top_info">{nome}</span>
       <span className="bottom_info">
-        <div>Ingredientes:</div>
-        {ingredientes.map(item => (
-          <span className="desc">{item}&nbsp;</span>
-        ))}
+        <Col md={12}>
+          Ingredientes:
+          {ingredientes.map(item => (
+            <span className="desc">
+              {ingredientesInfo[item] ? ingredientesInfo[item].name : item}
+              &nbsp;
+            </span>
+          ))}
+        </Col>
+        <Col md={12}>
+          Preço inicial:
+          <span className="desc">
+            {formatCurrency(returnPrice(ingredientes, ingredientesInfo))}
+          </span>
+        </Col>
       </span>
     </div>
   );

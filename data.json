@@ -1,10 +1,10 @@
 {
   "ingredientes": {
-    "alface": 0.4,
-    "bacon": 2.0,
-    "hamb-de-carne": 3.0,
-    "ovo": 0.8,
-    "queijo": 1.5
+    "alface": { "value": 0.4, "name": "Alface" },
+    "bacon": { "value": 2.0, "name": "Bacon" },
+    "hamb-de-carne": { "value": 3.0, "name": " Hamburguer de Carne" },
+    "ovo": { "value": 0.8, "name": "Ovo" },
+    "queijo": { "value": 1.5, "name": "Queijo" }
   },
   "lanches": [
     {
